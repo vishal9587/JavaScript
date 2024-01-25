@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <style>
+
+    form{
+        text-align: center;
+        padding-top: 120px;
+    }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="bookingForm">
+    <label for="bookingType">Choose Booking Type:</label>
+    <select id="bookingType" onchange="showOptions()">
+        <option value="fullDay">Full day booking</option>
+        <option value="halfDay">Half day booking</option>
+        <option value="hourly">Hourly booking</option>
+    </select>
+
+    <div id="dateSection" style="margin-top: 10px;">
+        <label for="bookingDate">Select Date:</label>
+        <input type="date" id="bookingDate" name="bookingDate" required>
+    </div>
+
+    <div id="slotSection" style="margin-top: 10px; display: none;">
+        <label for="bookingSlot">Select Slot:</label>
+        <select id="bookingSlot" name="bookingSlot">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+        </select>
+    </div>
+
+    <div id="timeSection" style="margin-top: 10px; display: none;">
+        <label for="bookingTime">Select Time:</label>
+        <input type="time" id="bookingTime" name="bookingTime" required>
+    </div>
+
+    <button type="submit" style="margin-top: 10px;">Submit</button>
+</form>
+
+<script>
+    function showOptions() {
+        var bookingType = document.getElementById("bookingType").value;
+        var dateSection = document.getElementById("dateSection");
+        var slotSection = document.getElementById("slotSection");
+        var timeSection = document.getElementById("timeSection");
+
+   
+
+        if (bookingType === "fullDay") {
+            dateSection.style.display = "block";
+        } else if (bookingType === "halfDay") {
+            dateSection.style.display = "block";
+            slotSection.style.display = "block";
+        } else if (bookingType === "hourly") {
+            dateSection.style.display = "block";
+            timeSection.style.display = "block";
+        }
+        alert("most wel come")
+        
+    }
+</script>
+
+</body>
+</html>
